@@ -14,6 +14,7 @@ namespace Anagram.Models
     {
       _word = word;
       _wordList = wordList;
+      _returnWordList = new List<string>{};
     }
 
     public string GetWord()
@@ -24,6 +25,21 @@ namespace Anagram.Models
     public void SetWord(string word)
     {
       _word = word;
+    }
+
+    public List<string> GetList()
+    {
+      return _wordList;
+    }
+
+    public void SetList(List<string> wordList)
+    {
+      _wordList = wordList;
+    }
+
+    public List<string> GetReturnList()
+    {
+      return _returnWordList;
     }
 
   }

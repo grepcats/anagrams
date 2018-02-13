@@ -50,6 +50,7 @@ namespace Anagram.Tests
       //assert
       CollectionAssert.AreEqual(result, userList);
     }
+
     [TestMethod]
     public void SetList_SetTheList_void()
     {
@@ -63,5 +64,34 @@ namespace Anagram.Tests
       //assert
       CollectionAssert.AreEqual(newList, newAnagram.GetList());
     }
+
+    [TestMethod]
+    public void GetReturnList_FetchTheReturnList_List()
+    {
+      //arrange
+      string fakeWord = "Bread";
+      List<string> fakeList = new List<string>{"Bread", "Dreab", "Rad"};
+      List<string> fakeReturnedList = new List<string>{};
+      AnagramChecker newAnagram = new AnagramChecker(fakeWord, fakeList);
+
+      //act
+      List<string> returnedList = newAnagram.GetReturnList();
+
+      //assert
+      CollectionAssert.AreEqual(returnedList, fakeReturnedList);
+    }
+    // [TestMethod]
+    // public void SetReturnList_SetTheReturnList_List()
+    // {
+    //   //arrange
+    //   string fakeword = "Beard";
+    //   List<string> fakeList = new List<string>{"Dreab","Bread","Rad"};
+    //   List<string> returnList = new List<string>{"Dreab","Bread"};
+    //   AnagramChecker newAnagram = new AnagramChecker(fakeword, fakeList);
+    //   //act
+    //   newAnagram.SetReturnList(returnList);
+    //   //assert
+    //   CollectionAssert.AreEqual(returnList, newAnagram.GetReturnList())
+    // }
   }
 }
