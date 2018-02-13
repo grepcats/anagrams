@@ -96,6 +96,5 @@ namespace Anagram.Tests
       //assert
       CollectionAssert.AreEqual(returnList, newAnagram.GetReturnList());
     }
-
   }
 }

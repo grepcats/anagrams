@@ -22,5 +22,45 @@ namespace Anagram.Tests
       //assert
       Assert.IsInstanceOfType(result, typeof(ViewResult));
     }
+
+    //also passes if we pass no object for some reason.
+    [TestMethod]
+    public void Index_HasCorrectModelType_StringList()
+    {
+      //arrange
+      ViewResult indexView = new HomeController().Index() as ViewResult;
+
+      //act
+      var result = indexView.ViewData.Model;
+
+      //assert
+      Assert.IsInstanceOfType(result, typeof(List<string>));
+    }
+
+    [TestMethod]
+    public void Create_ReturnCorrectView_True()
+    {
+      //arrange
+      HomeController controller = new HomeController();
+
+      //act
+      IActionResult indexView = controller.Create();
+      ViewResult result = indexView as ViewResult;
+
+      //assert
+      Assert.IsInstanceOfType(result, typeof(ViewResult));
+    }
+
+    //also passes if we pass no object for some reason.
+    [TestMethod]
+    public void Create_HasCorrectModelType_True()
+    {
+      //arrange
+      ViewResult indexView = new HomeController().Create() as ViewResult;
+      //act
+      var result = indexView.ViewData.Model;
+      //assert
+      Assert.IsInstanceOfType(result, typeof(List<string>));
+    }
   }
 }

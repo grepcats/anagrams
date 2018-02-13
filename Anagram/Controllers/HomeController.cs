@@ -11,5 +11,11 @@ namespace Anagram.Controllers
     {
       return View();
     }
+
+    [HttpPost("/submit")]
+    public ActionResult Create()
+    {
+       return View("Index");
+    }
   }
 }
