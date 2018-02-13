@@ -18,12 +18,12 @@ namespace Anagram.Models
 
     public string GetWord()
     {
-      return "hello";
+      return _word;
     }
 
     public void SetWord(string word)
     {
-      _word = "banana";
+      _word = word;
     }
 
   }

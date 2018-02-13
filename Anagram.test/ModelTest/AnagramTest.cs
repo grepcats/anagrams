@@ -21,5 +21,21 @@ namespace Anagram.Tests
       //assert
       Assert.AreEqual(userWord, result);
     }
+
+    [TestMethod]
+    public void SetWord_SetTheWord_void()
+    {
+      //arrange
+      string userWord = "word";
+      string newWord = "hello";
+      List<string> fakeList = new List<string>{};
+      AnagramChecker newAnagram = new AnagramChecker(userWord, fakeList);
+
+      //act
+      newAnagram.SetWord(newWord);
+
+      //assert
+      Assert.AreEqual(newWord, newAnagram.GetWord());
+    }
   }
 }
