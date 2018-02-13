@@ -80,18 +80,18 @@ namespace Anagram.Tests
       //assert
       CollectionAssert.AreEqual(returnedList, fakeReturnedList);
     }
-    // [TestMethod]
-    // public void SetReturnList_SetTheReturnList_List()
-    // {
-    //   //arrange
-    //   string fakeword = "Beard";
-    //   List<string> fakeList = new List<string>{"Dreab","Bread","Rad"};
-    //   List<string> returnList = new List<string>{"Dreab","Bread"};
-    //   AnagramChecker newAnagram = new AnagramChecker(fakeword, fakeList);
-    //   //act
-    //   newAnagram.SetReturnList(returnList);
-    //   //assert
-    //   CollectionAssert.AreEqual(returnList, newAnagram.GetReturnList())
-    // }
+    [TestMethod]
+    public void SetReturnList_SetTheReturnList_List()
+    {
+      //arrange
+      string fakeword = "Beard";
+      List<string> fakeList = new List<string>{"Dreab","Bread","Rad"};
+      List<string> returnList = new List<string>{"Dreab","Bread"};
+      AnagramChecker newAnagram = new AnagramChecker(fakeword, fakeList);
+      //act
+      newAnagram.SetReturnList(returnList);
+      //assert
+      CollectionAssert.AreEqual(returnList, newAnagram.GetReturnList());
+    }
   }
 }
