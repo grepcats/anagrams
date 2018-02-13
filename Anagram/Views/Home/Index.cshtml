@@ -3,40 +3,61 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
     <title>Will it Anagram?</title>
   </head>
   <body>
     <div class="container">
-
-      <form action="/submit" method="post">
-        <div class="form-group">
-          <label for="user-word">Enter a Word</label>
-          <input type="text" name="user-word" class="form-control">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h1>Will it Anagram?</h1>
         </div>
-
-        <div class="form-group">
-          <label for="user-word">Enter Some Words</label>
-          <input type="text" name="list-word1" class="form-control">
-          <input type="text" name="list-word2" class="form-control">
-          <input type="text" name="list-word3" class="form-control">
-          <input type="text" name="list-word4" class="form-control">
-          <input type="text" name="list-word5" class="form-control">
+        <div class="panel-body">
+          <img id="sailor" src="../img/giphy.gif" alt="Sailor Moon">
+          <form action="/submit" method="post">
+            <div class="form-group">
+              <label for="user-word">Enter a Word</label>
+              <input type="text" name="user-word" class="form-control">
+            </div>
+            <hr>
+            <div class="form-group">
+              <label for="user-word">Enter Some Other Words</label>
+              <input type="text" name="list-word1" class="form-control">
+              <input type="text" name="list-word2" class="form-control">
+              <input type="text" name="list-word3" class="form-control">
+              <input type="text" name="list-word4" class="form-control">
+              <input type="text" name="list-word5" class="form-control">
+            </div>
+            <hr>
+            <button class="btn btn-danger" type="submit" name="button">Submit</button>
+          </form>
         </div>
+      </div>
 
-        <button class="btn btn-danger" type="submit" name="button">Submit</button>
-      </form>
+
       @if (Model.Count == 0)
       {
         <p>Please enter an anagram and list of words you want to test matches for.</p>
       }
       else
       {
-        <ul>
-          @foreach (var word in Model)
-          {
-            <li>@word</li>
-          }
-        </ul>
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h1>Your Anagrams</h1>
+          </div>
+          <div class="panel-body">
+            <img id="okay" src="../img/okay.gif" alt="Okay">
+
+            <ul>
+              @foreach (var word in Model)
+              {
+                <li>@word</li>
+              }
+            </ul>
+          </div>
+        </div>
+
       }
 
     </div>

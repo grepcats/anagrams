@@ -1,0 +1,51 @@
+body {
+  background-image: url(../img/city.gif);
+  background-size: cover;
+}
+li {
+  list-style: none;
+  font-size: 40px;
+}
+
+input {
+  margin-bottom: 5px;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 80px;
+}
+
+label{
+  font-size: 35px;
+  font-family: 'Lobster', cursive;
+}
+
+.panel-info {
+  background-color: rgba(230, 255, 255, 0.7);
+}
+
+.panel-danger {
+  background-color: rgba(255, 230, 230, 0.7);
+}
+
+.btn {
+  font-size: 40px;
+}
+
+button{
+  font-family: 'Lobster', cursive;
+}
+
+#okay {
+  float: right;
+  display: block;
+  width: 55%;
+}
+
+#sailor {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
