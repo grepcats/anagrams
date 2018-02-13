@@ -25,7 +25,7 @@ namespace Anagram.Controllers
         Request.Form["list-word5"]
       };
       AnagramChecker newAnagram = new AnagramChecker(userWord, userList);
-      newAnagram.SetReturnList();
+      newAnagram.SetReturnListPartial();
       List<string> returnList = newAnagram.GetReturnList();
       return View("Index", returnList);
     }

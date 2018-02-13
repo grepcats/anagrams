@@ -96,5 +96,20 @@ namespace Anagram.Tests
       //assert
       CollectionAssert.AreEqual(returnList, newAnagram.GetReturnList());
     }
+
+    [TestMethod]
+    public void SetReturnListPartial_SetTheReturnList_List()
+    {
+      //arrange
+      string fakeword = "Beard";
+      List<string> fakeList = new List<string>{"Dreab","Bread","Rad","cat"};
+      List<string> returnList = new List<string>{"Dreab","Bread","Rad"};
+      AnagramChecker newAnagram = new AnagramChecker(fakeword, fakeList);
+      //act
+      newAnagram.SetReturnListPartial();
+
+      //assert
+      CollectionAssert.AreEqual(returnList, newAnagram.GetReturnList());
+    }
   }
 }

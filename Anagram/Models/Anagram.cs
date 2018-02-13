@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 
 namespace Anagram.Models
 {
@@ -56,6 +57,33 @@ namespace Anagram.Models
         Array.Sort(checkArray);
         string checkWord = string.Join("", checkArray);
         if (baseWord == checkWord)
+        {
+          returnList.Add(userWord);
+        }
+      }
+      _returnWordList = returnList;
+    }
+
+    public void SetReturnListPartial()
+    {
+      char[] wordArray = _word.ToCharArray();
+      List<string> returnList = new List<string>{};
+      Array.Sort(wordArray);
+      //string baseWord = string.Join("", wordArray);
+      foreach (string userWord in _wordList)
+      {
+        string lowerUserWord = userWord.ToLower();
+        char[] checkArray = lowerUserWord.ToCharArray();
+        Array.Sort(checkArray);
+        int i = 0;
+        foreach (char letter in checkArray)
+        {
+          if (wordArray.Contains(letter))
+          {
+            i++;
+          }
+        }
+        if (i == checkArray.Count())
         {
           returnList.Add(userWord);
         }
