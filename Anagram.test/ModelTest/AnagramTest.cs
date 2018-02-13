@@ -37,5 +37,31 @@ namespace Anagram.Tests
       //assert
       Assert.AreEqual(newWord, newAnagram.GetWord());
     }
+
+    [TestMethod]
+    public void GetList_FetchList_List()
+    {
+      //arrange
+      string fakeWord = " ";
+      List<string> userList = new List<string>{"Beard","Bread","Rad"};
+      AnagramChecker newAnagram = new AnagramChecker(fakeWord, userList);
+      //act
+      List<string> result = newAnagram.GetList();
+      //assert
+      CollectionAssert.AreEqual(result, userList);
+    }
+    [TestMethod]
+    public void SetList_SetTheList_void()
+    {
+      //arrange
+      string fakeWord = " ";
+      List<string> fakeList = new List<string>{};
+      List<string> newList = new List<string>{"Beard","Bread","Rad"};
+      AnagramChecker newAnagram = new AnagramChecker(fakeWord, fakeList);
+      //act
+      newAnagram.SetList(newList);
+      //assert
+      CollectionAssert.AreEqual(newList, newAnagram.GetList());
+    }
   }
 }
