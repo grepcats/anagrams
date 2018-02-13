@@ -12,7 +12,7 @@ namespace Anagram.Models
 
     public AnagramChecker(string word, List<string> wordList)
     {
-      _word = word;
+      _word = word.ToLower();
       _wordList = wordList;
       _returnWordList = new List<string>{};
     }
@@ -24,7 +24,8 @@ namespace Anagram.Models
 
     public void SetWord(string word)
     {
-      _word = word;
+      string lowerWord = word.ToLower();
+      _word = lowerWord;
     }
 
     public List<string> GetList()
@@ -40,6 +41,28 @@ namespace Anagram.Models
     public List<string> GetReturnList()
     {
       return _returnWordList;
+    }
+
+    public void SetReturnList()
+    {
+      char[] wordArray = _word.ToCharArray();
+      List<string> returnList = new List<string>{};
+      Array.Sort(wordArray);
+      string baseWord = string.Join("", wordArray);
+      foreach (string userWord in _wordList)
+      {
+        string lowerUserWord = userWord.ToLower();
+        char[] checkArray = lowerUserWord.ToCharArray();
+        Array.Sort(checkArray);
+        string checkWord = string.Join("", checkArray);
+        if (baseWord == checkWord)
+        {
+          returnList.Add(userWord);
+        }
+      }
+      Console.WriteLine(string.Join(", ", returnList));
+      Console.WriteLine("hello");
+      _returnWordList = returnList;
     }
 
   }

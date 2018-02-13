@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using Anagram.Models;
+using System;
 
 namespace Anagram.Tests
 {
@@ -80,6 +81,7 @@ namespace Anagram.Tests
       //assert
       CollectionAssert.AreEqual(returnedList, fakeReturnedList);
     }
+
     [TestMethod]
     public void SetReturnList_SetTheReturnList_List()
     {
@@ -89,9 +91,11 @@ namespace Anagram.Tests
       List<string> returnList = new List<string>{"Dreab","Bread"};
       AnagramChecker newAnagram = new AnagramChecker(fakeword, fakeList);
       //act
-      newAnagram.SetReturnList(returnList);
+      newAnagram.SetReturnList();
+
       //assert
       CollectionAssert.AreEqual(returnList, newAnagram.GetReturnList());
     }
+
   }
 }
