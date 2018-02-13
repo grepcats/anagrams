@@ -60,8 +60,6 @@ namespace Anagram.Models
           returnList.Add(userWord);
         }
       }
-      Console.WriteLine(string.Join(", ", returnList));
-      Console.WriteLine("hello");
       _returnWordList = returnList;
     }
 

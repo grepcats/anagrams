@@ -9,13 +9,25 @@ namespace Anagram.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      return View();
+      List<string> fakeList = new List<string>{};
+      return View(fakeList);
     }
 
     [HttpPost("/submit")]
     public ActionResult Create()
     {
-       return View("Index");
+      string userWord = Request.Form["user-word"];
+      List<string> userList = new List<string>{
+        Request.Form["list-word1"],
+        Request.Form["list-word2"],
+        Request.Form["list-word3"],
+        Request.Form["list-word4"],
+        Request.Form["list-word5"]
+      };
+      AnagramChecker newAnagram = new AnagramChecker(userWord, userList);
+      newAnagram.SetReturnList();
+      List<string> returnList = newAnagram.GetReturnList();
+      return View("Index", returnList);
     }
   }
 }
